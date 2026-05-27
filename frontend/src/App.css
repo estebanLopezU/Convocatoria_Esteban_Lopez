@@ -1,0 +1,1492 @@
+/* =====================================================
+   🌤️ SISTEMA DE HOMOGENIZACIÓN CLIMÁTICA
+   Tema: Escenarios Climáticos Ultra-Realistas 3D
+   ===================================================== */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  color: #2d3436;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ================================================================
+   1. WEATHER CONTAINER
+   ================================================================ */
+
+.weather-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.weather-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ================================================================
+   🌸 SPRING - Cherry blossom valley with misty morning
+   ================================================================ */
+
+.spring .sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+    #b8d4e3 0%, #c9e4f0 15%, #f2dbe6 30%,
+    #fce4ec 45%, #f8e8d4 55%, #dcedc8 65%,
+    #a5d6a7 75%, #81c784 85%, #66bb6a 100%
+  );
+  animation: springAtmosphere 20s ease-in-out infinite;
+}
+
+@keyframes springAtmosphere {
+  0%, 100% { filter: saturate(1) brightness(1); }
+  50% { filter: saturate(1.08) brightness(1.03); }
+}
+
+/* Mist layer */
+.spring .mist {
+  position: absolute;
+  width: 200%;
+  height: 35%;
+  top: 20%;
+  left: -50%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(255,255,255,0.25), transparent 60%);
+  animation: mistDrift 25s ease-in-out infinite alternate;
+  filter: blur(40px);
+}
+
+@keyframes mistDrift {
+  0% { transform: translateX(-10%) scaleY(1); }
+  100% { transform: translateX(10%) scaleY(1.2); }
+}
+
+/* Clouds */
+.spring .cloud {
+  position: absolute;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  filter: blur(15px);
+}
+
+.spring .cloud::before, .spring .cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.spring .cloud:nth-child(1) {
+  width: 300px; height: 60px; top: 8%;
+  animation: cloudDrift 50s linear infinite;
+}
+.spring .cloud:nth-child(1)::before {
+  width: 100px; height: 100px; top: -40px; left: 50px;
+}
+.spring .cloud:nth-child(1)::after {
+  width: 140px; height: 120px; top: -50px; left: 120px;
+}
+
+.spring .cloud:nth-child(2) {
+  width: 250px; height: 50px; top: 15%;
+  animation: cloudDrift 60s linear infinite;
+  animation-delay: -20s;
+}
+.spring .cloud:nth-child(2)::before {
+  width: 80px; height: 80px; top: -30px; left: 40px;
+}
+.spring .cloud:nth-child(2)::after {
+  width: 110px; height: 100px; top: -40px; left: 100px;
+}
+
+.spring .cloud:nth-child(3) {
+  width: 350px; height: 70px; top: 5%;
+  animation: cloudDrift 45s linear infinite;
+  animation-delay: -10s;
+  opacity: 0.5;
+}
+.spring .cloud:nth-child(3)::before {
+  width: 120px; height: 110px; top: -45px; left: 60px;
+}
+.spring .cloud:nth-child(3)::after {
+  width: 160px; height: 130px; top: -55px; left: 140px;
+}
+
+@keyframes cloudDrift {
+  0% { transform: translateX(-400px); }
+  100% { transform: translateX(calc(100vw + 400px)); }
+}
+
+/* Gentle spring sun */
+.spring .sun {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle at 35% 35%, #fff8e1, #ffe082 30%, #ffb300 60%, transparent 80%);
+  border-radius: 50%;
+  box-shadow: 0 0 60px 20px rgba(255,224,130,0.25), 0 0 120px 60px rgba(255,224,130,0.1);
+  animation: springSun 6s ease-in-out infinite alternate;
+}
+
+@keyframes springSun {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.08); opacity: 1; }
+}
+
+/* Cherry blossom branches */
+.spring .branch-left {
+  position: absolute;
+  top: 10%;
+  left: -20px;
+  width: 350px;
+  height: 200px;
+  border-top: 4px solid #5d4037;
+  border-right: 4px solid #5d4037;
+  border-radius: 0 120px 0 0;
+  transform: rotate(-10deg);
+  transform-origin: left bottom;
+  animation: branchSway 8s ease-in-out infinite alternate;
+}
+
+.spring .branch-left::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, #f8bbd0 30%, #f48fb1 60%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+.spring .branch-left::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, #f8bbd0 30%, #f48fb1 60%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+.spring .branch-right {
+  position: absolute;
+  top: 15%;
+  right: -20px;
+  width: 300px;
+  height: 180px;
+  border-top: 4px solid #5d4037;
+  border-left: 4px solid #5d4037;
+  border-radius: 120px 0 0 0;
+  transform: rotate(10deg);
+  transform-origin: right bottom;
+  animation: branchSway 8s ease-in-out infinite alternate-reverse;
+}
+
+.spring .branch-right::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -20px;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, #f8bbd0 30%, #f48fb1 60%, transparent 80%);
+  border-radius: 50%;
+  filter: blur(3px);
+}
+
+@keyframes branchSway {
+  0% { transform: rotate(-12deg); }
+  100% { transform: rotate(12deg); }
+}
+
+/* Rolling hills */
+.spring .hills {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35%;
+  overflow: hidden;
+}
+
+.spring .hill-back {
+  position: absolute;
+  bottom: 0;
+  width: 120%;
+  height: 60%;
+  left: -10%;
+  background: linear-gradient(180deg, #a5d6a7, #66bb6a 60%, #43a047 100%);
+  border-radius: 50% 70% 0 0;
+  opacity: 0.6;
+}
+
+.spring .hill-mid {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(180deg, #81c784, #4caf50 60%, #388e3c 100%);
+  border-radius: 40% 60% 0 0;
+}
+
+.spring .hill-front {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 35%;
+  background: linear-gradient(180deg, #66bb6a, #43a047 50%, #2e7d32 100%);
+  border-radius: 60% 40% 0 0;
+}
+
+/* Flowers in the field */
+.spring .flowers {
+  position: absolute;
+  bottom: 3%;
+  width: 100%;
+  height: 15%;
+}
+
+.spring .flower {
+  position: absolute;
+  bottom: 0;
+  animation: flowerSway 4s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+.spring .flower::before {
+  font-size: 20px;
+  display: block;
+}
+
+.spring .flower:nth-child(1) { left: 3%; animation-delay: 0s; }
+.spring .flower:nth-child(2) { left: 10%; animation-delay: 0.3s; }
+.spring .flower:nth-child(3) { left: 17%; animation-delay: 0.7s; }
+.spring .flower:nth-child(4) { left: 24%; animation-delay: 0.1s; }
+.spring .flower:nth-child(5) { left: 31%; animation-delay: 0.9s; }
+.spring .flower:nth-child(6) { left: 38%; animation-delay: 0.4s; }
+.spring .flower:nth-child(7) { left: 45%; animation-delay: 1.2s; }
+.spring .flower:nth-child(8) { left: 52%; animation-delay: 0.6s; }
+.spring .flower:nth-child(9) { left: 59%; animation-delay: 1.5s; }
+.spring .flower:nth-child(10) { left: 66%; animation-delay: 0.2s; }
+.spring .flower:nth-child(11) { left: 73%; animation-delay: 1.1s; }
+.spring .flower:nth-child(12) { left: 80%; animation-delay: 0.8s; }
+.spring .flower:nth-child(13) { left: 87%; animation-delay: 1.4s; }
+.spring .flower:nth-child(14) { left: 94%; animation-delay: 0.5s; }
+
+.spring .flower:nth-child(1)::before { content: '🌸'; }
+.spring .flower:nth-child(2)::before { content: '🌼'; }
+.spring .flower:nth-child(3)::before { content: '🌸'; }
+.spring .flower:nth-child(4)::before { content: '🌷'; }
+.spring .flower:nth-child(5)::before { content: '🌺'; }
+.spring .flower:nth-child(6)::before { content: '🌸'; }
+.spring .flower:nth-child(7)::before { content: '🌼'; }
+.spring .flower:nth-child(8)::before { content: '🌷'; }
+.spring .flower:nth-child(9)::before { content: '🌸'; }
+.spring .flower:nth-child(10)::before { content: '🌺'; }
+.spring .flower:nth-child(11)::before { content: '🌼'; }
+.spring .flower:nth-child(12)::before { content: '🌸'; }
+.spring .flower:nth-child(13)::before { content: '🌷'; }
+.spring .flower:nth-child(14)::before { content: '🌺'; }
+
+@keyframes flowerSway {
+  0% { transform: rotate(-6deg) scale(1); }
+  100% { transform: rotate(6deg) scale(1.05); }
+}
+
+/* Cherry blossom petals falling */
+.spring .petal {
+  position: absolute;
+  width: 10px;
+  height: 7px;
+  border-radius: 50% 0 50% 0;
+  opacity: 0;
+}
+
+.spring .petal:nth-child(1) { left: 5%; background: #f8bbd0; animation: petalFall 8s linear infinite; animation-delay: 0s; }
+.spring .petal:nth-child(2) { left: 12%; background: #f48fb1; animation: petalFall 10s linear infinite; animation-delay: 1.5s; width: 12px; height: 8px; }
+.spring .petal:nth-child(3) { left: 20%; background: #f8bbd0; animation: petalFall 7s linear infinite; animation-delay: 3s; }
+.spring .petal:nth-child(4) { left: 28%; background: #f48fb1; animation: petalFall 9s linear infinite; animation-delay: 0.5s; width: 8px; height: 6px; }
+.spring .petal:nth-child(5) { left: 35%; background: #f8bbd0; animation: petalFall 11s linear infinite; animation-delay: 4s; }
+.spring .petal:nth-child(6) { left: 42%; background: #f48fb1; animation: petalFall 8.5s linear infinite; animation-delay: 2s; width: 11px; height: 7px; }
+.spring .petal:nth-child(7) { left: 50%; background: #f8bbd0; animation: petalFall 9.5s linear infinite; animation-delay: 5s; }
+.spring .petal:nth-child(8) { left: 58%; background: #f48fb1; animation: petalFall 7.5s linear infinite; animation-delay: 0.2s; width: 9px; height: 6px; }
+.spring .petal:nth-child(9) { left: 65%; background: #f8bbd0; animation: petalFall 10.5s linear infinite; animation-delay: 3.5s; }
+.spring .petal:nth-child(10) { left: 72%; background: #f48fb1; animation: petalFall 8s linear infinite; animation-delay: 1s; width: 13px; height: 9px; }
+.spring .petal:nth-child(11) { left: 80%; background: #f8bbd0; animation: petalFall 11.5s linear infinite; animation-delay: 4.5s; }
+.spring .petal:nth-child(12) { left: 88%; background: #f48fb1; animation: petalFall 9s linear infinite; animation-delay: 2.5s; width: 7px; height: 5px; }
+.spring .petal:nth-child(13) { left: 15%; background: #f8bbd0; animation: petalFall 7.8s linear infinite; animation-delay: 6s; }
+.spring .petal:nth-child(14) { left: 48%; background: #f48fb1; animation: petalFall 10.2s linear infinite; animation-delay: 0.8s; width: 10px; height: 7px; }
+.spring .petal:nth-child(15) { left: 75%; background: #f8bbd0; animation: petalFall 8.2s linear infinite; animation-delay: 5.5s; }
+.spring .petal:nth-child(16) { left: 55%; background: #f48fb1; animation: petalFall 9.8s linear infinite; animation-delay: 1.8s; width: 12px; height: 8px; }
+.spring .petal:nth-child(17) { left: 30%; background: #f8bbd0; animation: petalFall 7.2s linear infinite; animation-delay: 4.2s; }
+.spring .petal:nth-child(18) { left: 68%; background: #f48fb1; animation: petalFall 11.8s linear infinite; animation-delay: 2.2s; width: 8px; height: 6px; }
+.spring .petal:nth-child(19) { left: 8%; background: #f8bbd0; animation: petalFall 8.8s linear infinite; animation-delay: 6.5s; }
+.spring .petal:nth-child(20) { left: 92%; background: #f48fb1; animation: petalFall 10.8s linear infinite; animation-delay: 3.8s; width: 11px; height: 7px; }
+
+@keyframes petalFall {
+  0% { transform: translateY(-5vh) rotate(0deg) translateX(0); opacity: 0; }
+  5% { opacity: 0.9; }
+  50% { transform: translateY(50vh) rotate(360deg) translateX(50px); opacity: 0.7; }
+  95% { opacity: 0.4; }
+  100% { transform: translateY(105vh) rotate(720deg) translateX(-30px); opacity: 0; }
+}
+
+/* Butterflies */
+.spring .butterfly {
+  position: absolute;
+  font-size: 18px;
+  opacity: 0;
+}
+
+.spring .butterfly::before { content: '🦋'; }
+
+.spring .butterfly:nth-child(1) { left: 20%; animation: butterflyFlight 14s linear infinite; animation-delay: 0s; }
+.spring .butterfly:nth-child(2) { left: 55%; animation: butterflyFlight 12s linear infinite; animation-delay: 4s; }
+.spring .butterfly:nth-child(3) { left: 75%; animation: butterflyFlight 16s linear infinite; animation-delay: 8s; }
+.spring .butterfly:nth-child(4) { left: 35%; animation: butterflyFlight 13s linear infinite; animation-delay: 2s; }
+.spring .butterfly:nth-child(5) { left: 10%; animation: butterflyFlight 15s linear infinite; animation-delay: 6s; }
+
+@keyframes butterflyFlight {
+  0% { transform: translate(0, 90vh) scale(0.3); opacity: 0; }
+  8% { opacity: 1; }
+  25% { transform: translate(80px, 60vh) scale(1) rotate(8deg); }
+  50% { transform: translate(-40px, 35vh) scale(0.9) rotate(-12deg); }
+  75% { transform: translate(60px, 15vh) scale(1.1) rotate(5deg); }
+  92% { opacity: 1; }
+  100% { transform: translate(-20px, -5vh) scale(0.3); opacity: 0; }
+}
+
+/* ================================================================
+   ☀️ SUMMER - Tropical beach with blazing sun
+   ================================================================ */
+
+.summer .sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+    #0d47a1 0%, #1565c0 8%, #1976d2 15%,
+    #42a5f5 30%, #64b5f6 45%, #90caf9 55%,
+    #bbdefb 62%, #fff9c4 70%, #ffe082 78%,
+    #ffcc02 88%, #ffb300 95%, #ff8f00 100%
+  );
+  animation: summerHaze 10s ease-in-out infinite alternate;
+}
+
+@keyframes summerHaze {
+  0% { filter: brightness(1) saturate(1); }
+  50% { filter: brightness(1.12) saturate(1.2); }
+  100% { filter: brightness(1.06) saturate(1.1); }
+}
+
+/* Intense sun with corona */
+.summer .sun-blaze {
+  position: absolute;
+  top: 5%;
+  right: 8%;
+  width: 160px;
+  height: 160px;
+}
+
+.summer .sun-blaze .core {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 30%,
+    #fffde7 0%, #ffd54f 15%, #ff8f00 35%,
+    #e65100 55%, transparent 75%
+  );
+  border-radius: 50%;
+  box-shadow:
+    0 0 40px 20px rgba(255,213,79,0.35),
+    0 0 100px 50px rgba(255,143,0,0.2),
+    0 0 200px 100px rgba(255,143,0,0.1);
+  animation: sunCorePulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes sunCorePulse {
+  0% { transform: scale(1); box-shadow: 0 0 40px 20px rgba(255,213,79,0.35), 0 0 100px 50px rgba(255,143,0,0.2); }
+  100% { transform: scale(1.08); box-shadow: 0 0 60px 30px rgba(255,213,79,0.5), 0 0 140px 70px rgba(255,143,0,0.3); }
+}
+
+/* Sun rays */
+.summer .sun-rays {
+  position: absolute;
+  top: 5%;
+  right: 8%;
+  width: 160px;
+  height: 160px;
+  pointer-events: none;
+}
+
+.summer .sun-rays .ray {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 2px;
+  margin: -1px 0 0 -200px;
+  background: linear-gradient(90deg,
+    rgba(255,213,79,0.4), rgba(255,213,79,0.1), transparent
+  );
+  transform-origin: center;
+  animation: rayRotate 15s linear infinite;
+}
+
+.summer .sun-rays .ray:nth-child(1) { transform: rotate(0deg); }
+.summer .sun-rays .ray:nth-child(2) { transform: rotate(30deg); animation-delay: -1.25s; }
+.summer .sun-rays .ray:nth-child(3) { transform: rotate(60deg); animation-delay: -2.5s; }
+.summer .sun-rays .ray:nth-child(4) { transform: rotate(90deg); animation-delay: -3.75s; }
+.summer .sun-rays .ray:nth-child(5) { transform: rotate(120deg); animation-delay: -5s; }
+.summer .sun-rays .ray:nth-child(6) { transform: rotate(150deg); animation-delay: -6.25s; }
+.summer .sun-rays .ray:nth-child(7) { transform: rotate(180deg); animation-delay: -7.5s; }
+.summer .sun-rays .ray:nth-child(8) { transform: rotate(210deg); animation-delay: -8.75s; }
+.summer .sun-rays .ray:nth-child(9) { transform: rotate(240deg); animation-delay: -10s; }
+.summer .sun-rays .ray:nth-child(10) { transform: rotate(270deg); animation-delay: -11.25s; }
+.summer .sun-rays .ray:nth-child(11) { transform: rotate(300deg); animation-delay: -12.5s; }
+.summer .sun-rays .ray:nth-child(12) { transform: rotate(330deg); animation-delay: -13.75s; }
+
+@keyframes rayRotate {
+  0% { opacity: 0.3; }
+  25% { opacity: 0.8; width: 500px; }
+  50% { opacity: 0.4; width: 350px; }
+  75% { opacity: 0.9; width: 450px; }
+  100% { opacity: 0.3; width: 400px; }
+}
+
+/* Ocean with animated waves */
+.summer .ocean {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 38%;
+  overflow: hidden;
+}
+
+.summer .ocean .wave-layer {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+}
+
+.summer .ocean .wave-layer:nth-child(1) {
+  height: 30%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.15), rgba(100,181,246,0.3));
+  border-radius: 30% 70% 0 0;
+  animation: oceanWave 7s ease-in-out infinite alternate;
+}
+
+.summer .ocean .wave-layer:nth-child(2) {
+  height: 50%;
+  background: linear-gradient(180deg, rgba(66,165,245,0.4), rgba(30,136,229,0.6));
+  border-radius: 50% 50% 0 0;
+  animation: oceanWave 9s ease-in-out infinite alternate-reverse;
+  animation-delay: -3s;
+}
+
+.summer .ocean .wave-layer:nth-child(3) {
+  height: 75%;
+  background: linear-gradient(180deg, rgba(30,136,229,0.6), rgba(13,71,161,0.8));
+  border-radius: 40% 60% 0 0;
+  animation: oceanWave 11s ease-in-out infinite alternate;
+  animation-delay: -6s;
+}
+
+.summer .ocean .wave-layer:nth-child(4) {
+  height: 100%;
+  background: linear-gradient(180deg, rgba(13,71,161,0.8), #0d47a1);
+  border-radius: 60% 40% 0 0;
+  animation: oceanWave 13s ease-in-out infinite alternate-reverse;
+  animation-delay: -9s;
+}
+
+@keyframes oceanWave {
+  0% { transform: translateX(-3%) skewX(-1deg); }
+  100% { transform: translateX(3%) skewX(1deg); }
+}
+
+/* Water sparkles */
+.summer .sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  animation: sparkleFlash 2.5s ease-in-out infinite;
+  box-shadow: 0 0 8px 3px rgba(255,255,255,0.6);
+}
+
+.summer .sparkle:nth-child(1) { bottom: 25%; left: 10%; animation-delay: 0s; }
+.summer .sparkle:nth-child(2) { bottom: 20%; left: 25%; animation-delay: 0.5s; width: 3px; height: 3px; }
+.summer .sparkle:nth-child(3) { bottom: 30%; left: 40%; animation-delay: 1s; }
+.summer .sparkle:nth-child(4) { bottom: 22%; left: 55%; animation-delay: 0.3s; width: 4px; height: 4px; }
+.summer .sparkle:nth-child(5) { bottom: 28%; left: 70%; animation-delay: 1.5s; }
+.summer .sparkle:nth-child(6) { bottom: 18%; left: 85%; animation-delay: 0.8s; width: 3px; height: 3px; }
+.summer .sparkle:nth-child(7) { bottom: 35%; left: 50%; animation-delay: 2s; }
+.summer .sparkle:nth-child(8) { bottom: 15%; left: 35%; animation-delay: 1.2s; width: 4px; height: 4px; }
+.summer .sparkle:nth-child(9) { bottom: 26%; left: 65%; animation-delay: 0.7s; }
+.summer .sparkle:nth-child(10) { bottom: 32%; left: 80%; animation-delay: 1.8s; width: 3px; height: 3px; }
+
+@keyframes sparkleFlash {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  40% { opacity: 1; transform: scale(1.3); }
+  60% { opacity: 0.8; transform: scale(0.8); }
+}
+
+/* Heat waves */
+.summer .heat-wave {
+  position: absolute;
+  width: 120px;
+  height: 25px;
+  border-radius: 50%;
+  background: rgba(255,255,200,0.03);
+  border: 1px solid rgba(255,220,100,0.05);
+  animation: heatRise linear infinite;
+}
+
+.summer .heat-wave:nth-child(1) { left: 15%; animation-duration: 6s; animation-delay: 0s; }
+.summer .heat-wave:nth-child(2) { left: 35%; animation-duration: 7s; animation-delay: 2s; }
+.summer .heat-wave:nth-child(3) { left: 55%; animation-duration: 5.5s; animation-delay: 4s; }
+.summer .heat-wave:nth-child(4) { left: 75%; animation-duration: 6.5s; animation-delay: 1s; }
+.summer .heat-wave:nth-child(5) { left: 10%; animation-duration: 8s; animation-delay: 3s; }
+.summer .heat-wave:nth-child(6) { left: 45%; animation-duration: 5s; animation-delay: 5s; }
+.summer .heat-wave:nth-child(7) { left: 65%; animation-duration: 7.5s; animation-delay: 0.5s; }
+.summer .heat-wave:nth-child(8) { left: 85%; animation-duration: 6.2s; animation-delay: 2.5s; }
+
+@keyframes heatRise {
+  0% { transform: translateY(100vh) scaleX(0.3); opacity: 0; }
+  15% { opacity: 0.2; }
+  85% { opacity: 0.1; }
+  100% { transform: translateY(-5vh) scaleX(1.5); opacity: 0; }
+}
+
+/* Palm tree */
+.summer .palm {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  font-size: 100px;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.2));
+  animation: palmSway 5s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+.summer .palm-right {
+  right: 3%;
+  left: auto;
+  animation-delay: -2.5s;
+  font-size: 80px;
+}
+
+@keyframes palmSway {
+  0% { transform: rotate(-4deg); }
+  100% { transform: rotate(4deg); }
+}
+
+/* ================================================================
+   🍂 FALL - Autumn forest with falling leaves and mist
+   ================================================================ */
+
+.fall .sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+    #4e342e 0%, #5d4037 8%, #6d4c41 15%,
+    #795548 22%, #8d6e63 30%, #a1887f 38%,
+    #bcaaa4 45%, #d7ccc8 50%, #d4a373 55%,
+    #e9c46a 60%, #f4a261 65%, #e76f51 70%,
+    #e65100 78%, #d84315 85%, #bf360c 92%, #8d6e63 100%
+  );
+  animation: fallDusk 18s ease-in-out infinite alternate;
+}
+
+@keyframes fallDusk {
+  0% { filter: saturate(0.8) brightness(0.85); }
+  50% { filter: saturate(1.1) brightness(0.95); }
+  100% { filter: saturate(0.9) brightness(0.9); }
+}
+
+/* Fog/mist layer */
+.fall .fog {
+  position: absolute;
+  width: 100%;
+  height: 40%;
+  top: 25%;
+  background: radial-gradient(ellipse at 50% 50%,
+    rgba(188,170,164,0.2), transparent 60%
+  );
+  filter: blur(50px);
+  animation: fogPulse 20s ease-in-out infinite alternate;
+}
+
+@keyframes fogPulse {
+  0% { opacity: 0.5; transform: scaleY(0.8); }
+  100% { opacity: 0.9; transform: scaleY(1.2); }
+}
+
+/* Autumn trees */
+.fall .tree-trunk {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -12px;
+  width: 24px;
+  height: 60%;
+  background: linear-gradient(90deg, #4e342e, #5d4037);
+  border-radius: 4px;
+  transform-origin: bottom center;
+}
+
+.fall .tree-left { left: 8%; }
+.fall .tree-left-mid { left: 25%; }
+.fall .tree-center { left: 45%; }
+.fall .tree-right-mid { left: 62%; }
+.fall .tree-right { left: 78%; }
+.fall .tree-far-left { left: -5%; }
+.fall .tree-far-right { left: 92%; }
+
+.fall .tree-canopy {
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 140px;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.fall .tree-left .tree-canopy {
+  background: radial-gradient(ellipse at 50% 50%, #e65100, #bf360c 40%, transparent 70%);
+  width: 140px;
+  height: 120px;
+}
+
+.fall .tree-left-mid .tree-canopy {
+  background: radial-gradient(ellipse at 50% 50%, #ff8f00, #e65100 40%, transparent 70%);
+  width: 180px;
+  height: 150px;
+}
+
+.fall .tree-center .tree-canopy {
+  background: radial-gradient(ellipse at 50% 50%, #f4a261, #e76f51 40%, transparent 70%);
+  width: 200px;
+  height: 170px;
+}
+
+.fall .tree-right-mid .tree-canopy {
+  background: radial-gradient(ellipse at 50% 50%, #e9c46a, #f4a261 40%, transparent 70%);
+  width: 170px;
+  height: 140px;
+}
+
+.fall .tree-right .tree-canopy {
+  background: radial-gradient(ellipse at 50% 50%, #d84315, #bf360c 40%, transparent 70%);
+  width: 150px;
+  height: 130px;
+}
+
+.fall .tree-far-left .tree-canopy {
+  background: radial-gradient(ellipse at 50% 50%, #e65100, #bf360c 40%, transparent 70%);
+  width: 120px;
+  height: 100px;
+}
+
+.fall .tree-far-right .tree-canopy {
+  background: radial-gradient(ellipse at 50% 50%, #ff8f00, #d84315 40%, transparent 70%);
+  width: 130px;
+  height: 110px;
+}
+
+/* Ground with fallen leaves */
+.fall .ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 15%;
+  background: linear-gradient(180deg, #8d6e63, #6d4c41 60%, #4e342e 100%);
+}
+
+/* Falling leaves */
+.fall .leaf {
+  position: absolute;
+  opacity: 0;
+}
+
+.fall .leaf::before {
+  content: '🍂';
+  font-size: 18px;
+}
+
+.fall .leaf:nth-child(1) { left: 2%; animation: leafFall 10s linear infinite; animation-delay: 0s; }
+.fall .leaf:nth-child(2) { left: 10%; animation: leafFall 8s linear infinite; animation-delay: 1.5s; }
+.fall .leaf:nth-child(3) { left: 18%; animation: leafFall 12s linear infinite; animation-delay: 3s; }
+.fall .leaf:nth-child(4) { left: 26%; animation: leafFall 9s linear infinite; animation-delay: 0.5s; }
+.fall .leaf:nth-child(5) { left: 34%; animation: leafFall 11s linear infinite; animation-delay: 4s; }
+.fall .leaf:nth-child(6) { left: 42%; animation: leafFall 7s linear infinite; animation-delay: 2s; }
+.fall .leaf:nth-child(7) { left: 50%; animation: leafFall 13s linear infinite; animation-delay: 5s; }
+.fall .leaf:nth-child(8) { left: 58%; animation: leafFall 8.5s linear infinite; animation-delay: 0.2s; }
+.fall .leaf:nth-child(9) { left: 66%; animation: leafFall 10.5s linear infinite; animation-delay: 3.5s; }
+.fall .leaf:nth-child(10) { left: 74%; animation: leafFall 9.5s linear infinite; animation-delay: 1s; }
+.fall .leaf:nth-child(11) { left: 82%; animation: leafFall 11.5s linear infinite; animation-delay: 4.5s; }
+.fall .leaf:nth-child(12) { left: 90%; animation: leafFall 7.5s linear infinite; animation-delay: 2.5s; }
+.fall .leaf:nth-child(13) { left: 6%; animation: leafFall 12.5s linear infinite; animation-delay: 6s; }
+.fall .leaf:nth-child(14) { left: 48%; animation: leafFall 8.2s linear infinite; animation-delay: 0.8s; }
+.fall .leaf:nth-child(15) { left: 70%; animation: leafFall 10.8s linear infinite; animation-delay: 3.2s; }
+
+.fall .leaf:nth-child(2)::before { content: '🍁'; font-size: 16px; }
+.fall .leaf:nth-child(5)::before { content: '🍁'; font-size: 20px; }
+.fall .leaf:nth-child(9)::before { content: '🍁'; font-size: 14px; }
+.fall .leaf:nth-child(12)::before { content: '🍁'; font-size: 18px; }
+.fall .leaf:nth-child(14)::before { content: '🍁'; font-size: 16px; }
+
+@keyframes leafFall {
+  0% { transform: translateY(-5vh) rotateX(0deg) translateX(0); opacity: 0; }
+  5% { opacity: 0.9; }
+  30% { transform: translateY(30vh) rotateX(180deg) translateX(30px); opacity: 0.8; }
+  60% { transform: translateY(60vh) rotateX(360deg) translateX(-20px); opacity: 0.6; }
+  95% { opacity: 0.3; }
+  100% { transform: translateY(105vh) rotateX(540deg) translateX(40px); opacity: 0; }
+}
+
+/* Wind lines */
+.fall .wind {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  border-radius: 2px;
+}
+
+.fall .wind:nth-child(1) { top: 20%; width: 200px; animation: windBlow 5s linear infinite; animation-delay: 0s; left: -200px; }
+.fall .wind:nth-child(2) { top: 35%; width: 150px; animation: windBlow 6s linear infinite; animation-delay: 2s; left: -150px; }
+.fall .wind:nth-child(3) { top: 50%; width: 250px; animation: windBlow 4.5s linear infinite; animation-delay: 4s; left: -250px; }
+.fall .wind:nth-child(4) { top: 65%; width: 180px; animation: windBlow 5.5s linear infinite; animation-delay: 1s; left: -180px; }
+.fall .wind:nth-child(5) { top: 80%; width: 220px; animation: windBlow 7s linear infinite; animation-delay: 3s; left: -220px; }
+
+@keyframes windBlow {
+  0% { transform: translateX(0); opacity: 0; }
+  10% { opacity: 0.12; }
+  90% { opacity: 0.12; }
+  100% { transform: translateX(calc(100vw + 300px)); opacity: 0; }
+}
+
+/* ================================================================
+   ❄️ WINTER - Snowy landscape with blizzard
+   ================================================================ */
+
+.winter .sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+    #1a1a2e 0%, #16213e 15%, #2c3e50 25%,
+    #4a5568 35%, #6b7280 45%, #9ca3af 50%,
+    #b8c9d4 55%, #d1dce0 60%, #e2e8f0 65%,
+    #edf2f7 70%, #f7fafc 80%, #ffffff 100%
+  );
+  animation: winterStorm 15s ease-in-out infinite alternate;
+}
+
+@keyframes winterStorm {
+  0% { filter: brightness(0.8) saturate(0.5); }
+  50% { filter: brightness(1) saturate(0.7); }
+  100% { filter: brightness(0.9) saturate(0.6); }
+}
+
+/* Heavy clouds */
+.winter .storm-cloud {
+  position: absolute;
+  background: rgba(100,116,139,0.6);
+  border-radius: 50%;
+  filter: blur(20px);
+}
+
+.winter .storm-cloud::before, .winter .storm-cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.winter .storm-cloud:nth-child(1) {
+  width: 400px; height: 100px; top: 5%;
+  animation: stormCloudDrift 40s linear infinite;
+}
+.winter .storm-cloud:nth-child(1)::before {
+  width: 150px; height: 130px; top: -60px; left: 80px;
+}
+.winter .storm-cloud:nth-child(1)::after {
+  width: 200px; height: 160px; top: -80px; left: 200px;
+}
+
+.winter .storm-cloud:nth-child(2) {
+  width: 350px; height: 90px; top: 15%;
+  animation: stormCloudDrift 50s linear infinite;
+  animation-delay: -15s;
+  opacity: 0.7;
+}
+.winter .storm-cloud:nth-child(2)::before {
+  width: 130px; height: 110px; top: -50px; left: 60px;
+}
+.winter .storm-cloud:nth-child(2)::after {
+  width: 170px; height: 140px; top: -70px; left: 160px;
+}
+
+.winter .storm-cloud:nth-child(3) {
+  width: 300px; height: 80px; top: -5%;
+  animation: stormCloudDrift 35s linear infinite;
+  animation-delay: -30s;
+  opacity: 0.5;
+}
+.winter .storm-cloud:nth-child(3)::before {
+  width: 110px; height: 100px; top: -45px; left: 50px;
+}
+.winter .storm-cloud:nth-child(3)::after {
+  width: 150px; height: 120px; top: -60px; left: 130px;
+}
+
+@keyframes stormCloudDrift {
+  0% { transform: translateX(-500px); }
+  100% { transform: translateX(calc(100vw + 500px)); }
+}
+
+/* Snow-covered mountains */
+.winter .mountains {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 45%;
+  overflow: hidden;
+}
+
+.winter .mountain {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.winter .mountain:nth-child(1) {
+  left: -5%;
+  border-width: 0 200px 300px 200px;
+  border-color: transparent transparent #2d3748 transparent;
+}
+
+.winter .mountain:nth-child(1)::after {
+  content: '';
+  position: absolute;
+  top: -300px;
+  left: -200px;
+  width: 400px;
+  height: 100px;
+  background: linear-gradient(180deg, #e2e8f0, transparent);
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%);
+}
+
+.winter .mountain:nth-child(2) {
+  left: 15%;
+  border-width: 0 250px 400px 250px;
+  border-color: transparent transparent #1a202c transparent;
+}
+
+.winter .mountain:nth-child(2)::after {
+  content: '';
+  position: absolute;
+  top: -400px;
+  left: -250px;
+  width: 500px;
+  height: 150px;
+  background: linear-gradient(180deg, #edf2f7, transparent);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.winter .mountain:nth-child(3) {
+  right: -5%;
+  border-width: 0 180px 280px 180px;
+  border-color: transparent transparent #2d3748 transparent;
+}
+
+.winter .mountain:nth-child(3)::after {
+  content: '';
+  position: absolute;
+  top: -280px;
+  left: -180px;
+  width: 360px;
+  height: 90px;
+  background: linear-gradient(180deg, #e2e8f0, transparent);
+  clip-path: polygon(0 0, 100% 0, 55% 100%, 45% 100%);
+}
+
+/* Snow ground */
+.winter .snow-ground {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(180deg, #f7fafc, #e2e8f0 50%, #cbd5e0 100%);
+  border-radius: 30% 70% 0 0;
+}
+
+/* Falling snow */
+.winter .snowflake {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(0.5px);
+  box-shadow: 0 0 3px rgba(255,255,255,0.5);
+}
+
+.winter .snowflake:nth-child(1) { left: 1%; width: 4px; height: 4px; animation: snowFall 12s linear infinite; animation-delay: 0s; }
+.winter .snowflake:nth-child(2) { left: 6%; width: 7px; height: 7px; animation: snowFall 14s linear infinite; animation-delay: 1s; }
+.winter .snowflake:nth-child(3) { left: 12%; width: 3px; height: 3px; animation: snowFall 10s linear infinite; animation-delay: 2s; }
+.winter .snowflake:nth-child(4) { left: 18%; width: 5px; height: 5px; animation: snowFall 16s linear infinite; animation-delay: 0.5s; }
+.winter .snowflake:nth-child(5) { left: 24%; width: 8px; height: 8px; animation: snowFall 11s linear infinite; animation-delay: 3s; }
+.winter .snowflake:nth-child(6) { left: 30%; width: 4px; height: 4px; animation: snowFall 13s linear infinite; animation-delay: 0.2s; }
+.winter .snowflake:nth-child(7) { left: 36%; width: 6px; height: 6px; animation: snowFall 9s linear infinite; animation-delay: 2.5s; }
+.winter .snowflake:nth-child(8) { left: 42%; width: 3px; height: 3px; animation: snowFall 15s linear infinite; animation-delay: 1.5s; }
+.winter .snowflake:nth-child(9) { left: 48%; width: 7px; height: 7px; animation: snowFall 11.5s linear infinite; animation-delay: 0.8s; }
+.winter .snowflake:nth-child(10) { left: 54%; width: 5px; height: 5px; animation: snowFall 10.5s linear infinite; animation-delay: 3.5s; }
+.winter .snowflake:nth-child(11) { left: 60%; width: 4px; height: 4px; animation: snowFall 14.5s linear infinite; animation-delay: 4s; }
+.winter .snowflake:nth-child(12) { left: 66%; width: 6px; height: 6px; animation: snowFall 8.5s linear infinite; animation-delay: 1.8s; }
+.winter .snowflake:nth-child(13) { left: 72%; width: 3px; height: 3px; animation: snowFall 12.5s linear infinite; animation-delay: 2.2s; }
+.winter .snowflake:nth-child(14) { left: 78%; width: 5px; height: 5px; animation: snowFall 9.5s linear infinite; animation-delay: 0.3s; }
+.winter .snowflake:nth-child(15) { left: 84%; width: 8px; height: 8px; animation: snowFall 13.5s linear infinite; animation-delay: 3.8s; }
+.winter .snowflake:nth-child(16) { left: 90%; width: 4px; height: 4px; animation: snowFall 11.2s linear infinite; animation-delay: 5s; }
+.winter .snowflake:nth-child(17) { left: 3%; width: 6px; height: 6px; animation: snowFall 10.8s linear infinite; animation-delay: 4.5s; }
+.winter .snowflake:nth-child(18) { left: 50%; width: 3px; height: 3px; animation: snowFall 14.2s linear infinite; animation-delay: 6s; }
+.winter .snowflake:nth-child(19) { left: 75%; width: 5px; height: 5px; animation: snowFall 9.8s linear infinite; animation-delay: 5.5s; }
+.winter .snowflake:nth-child(20) { left: 40%; width: 7px; height: 7px; animation: snowFall 12.8s linear infinite; animation-delay: 6.5s; }
+.winter .snowflake:nth-child(21) { left: 55%; width: 4px; height: 4px; animation: snowFall 8.2s linear infinite; animation-delay: 7s; }
+.winter .snowflake:nth-child(22) { left: 20%; width: 6px; height: 6px; animation: snowFall 11.8s linear infinite; animation-delay: 0.6s; }
+.winter .snowflake:nth-child(23) { left: 68%; width: 3px; height: 3px; animation: snowFall 10.2s linear infinite; animation-delay: 3.2s; }
+.winter .snowflake:nth-child(24) { left: 35%; width: 5px; height: 5px; animation: snowFall 13.8s linear infinite; animation-delay: 2.8s; }
+.winter .snowflake:nth-child(25) { left: 88%; width: 7px; height: 7px; animation: snowFall 9.2s linear infinite; animation-delay: 1.2s; }
+
+@keyframes snowFall {
+  0% { transform: translateY(-5vh) translateX(0) scale(0.5); opacity: 0; }
+  5% { opacity: 0.9; }
+  50% { transform: translateY(50vh) translateX(-40px) scale(1.2); opacity: 0.8; }
+  95% { opacity: 0.5; }
+  100% { transform: translateY(105vh) translateX(30px) scale(0.6); opacity: 0; }
+}
+
+/* Rain mixed with snow */
+.winter .raindrop {
+  position: absolute;
+  width: 2px;
+  height: 12px;
+  background: linear-gradient(180deg, transparent, rgba(200,220,255,0.4));
+  opacity: 0;
+}
+
+.winter .raindrop:nth-child(26) { left: 5%; animation: rainFall 0.7s linear infinite; animation-delay: 0s; }
+.winter .raindrop:nth-child(27) { left: 15%; animation: rainFall 0.6s linear infinite; animation-delay: 0.2s; }
+.winter .raindrop:nth-child(28) { left: 25%; animation: rainFall 0.8s linear infinite; animation-delay: 0.4s; }
+.winter .raindrop:nth-child(29) { left: 35%; animation: rainFall 0.65s linear infinite; animation-delay: 0.1s; }
+.winter .raindrop:nth-child(30) { left: 45%; animation: rainFall 0.75s linear infinite; animation-delay: 0.3s; }
+.winter .raindrop:nth-child(31) { left: 55%; animation: rainFall 0.6s linear infinite; animation-delay: 0.5s; }
+.winter .raindrop:nth-child(32) { left: 65%; animation: rainFall 0.7s linear infinite; animation-delay: 0.15s; }
+.winter .raindrop:nth-child(33) { left: 75%; animation: rainFall 0.8s linear infinite; animation-delay: 0.35s; }
+.winter .raindrop:nth-child(34) { left: 85%; animation: rainFall 0.65s linear infinite; animation-delay: 0.45s; }
+.winter .raindrop:nth-child(35) { left: 95%; animation: rainFall 0.75s linear infinite; animation-delay: 0.05s; }
+
+@keyframes rainFall {
+  0% { transform: translateY(-5vh) skewX(-15deg); opacity: 0; }
+  15% { opacity: 0.5; }
+  85% { opacity: 0.5; }
+  100% { transform: translateY(105vh) skewX(-15deg); opacity: 0; }
+}
+
+/* ================================================================
+   🌈 AUTO - Cycle through all seasons
+   ================================================================ */
+
+.auto .sky {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: seasonCycle 20s ease-in-out infinite;
+}
+
+@keyframes seasonCycle {
+  0%, 20% {
+    background: linear-gradient(180deg,
+      #b8d4e3 0%, #c9e4f0 15%, #f2dbe6 30%,
+      #fce4ec 45%, #f8e8d4 55%, #dcedc8 65%,
+      #a5d6a7 75%, #81c784 85%, #66bb6a 100%);
+  }
+  25%, 45% {
+    background: linear-gradient(180deg,
+      #0d47a1 0%, #1565c0 8%, #1976d2 15%,
+      #42a5f5 30%, #64b5f6 45%, #90caf9 55%,
+      #bbdefb 62%, #fff9c4 70%, #ffe082 78%,
+      #ffcc02 88%, #ffb300 95%, #ff8f00 100%);
+  }
+  50%, 70% {
+    background: linear-gradient(180deg,
+      #4e342e 0%, #5d4037 8%, #6d4c41 15%,
+      #795548 22%, #8d6e63 30%, #a1887f 38%,
+      #bcaaa4 45%, #d7ccc8 50%, #d4a373 55%,
+      #e9c46a 60%, #f4a261 65%, #e76f51 70%,
+      #e65100 78%, #d84315 85%, #bf360c 92%, #8d6e63 100%);
+  }
+  75%, 95% {
+    background: linear-gradient(180deg,
+      #1a1a2e 0%, #16213e 15%, #2c3e50 25%,
+      #4a5568 35%, #6b7280 45%, #9ca3af 50%,
+      #b8c9d4 55%, #d1dce0 60%, #e2e8f0 65%,
+      #edf2f7 70%, #f7fafc 80%, #ffffff 100%);
+  }
+  100% {
+    background: linear-gradient(180deg,
+      #b8d4e3 0%, #c9e4f0 15%, #f2dbe6 30%,
+      #fce4ec 45%, #f8e8d4 55%, #dcedc8 65%,
+      #a5d6a7 75%, #81c784 85%, #66bb6a 100%);
+  }
+}
+
+/* ================================================================
+   LAYOUT PRINCIPAL
+   ================================================================ */
+
+.app { max-width: 1300px; margin: 0 auto; padding: 20px; position: relative; }
+
+/* ================================================================
+   SELECTOR DE ESTACIÓN
+   ================================================================ */
+
+.season-selector {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.season-btn {
+  padding: 12px 22px;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 30px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  letter-spacing: 0.3px;
+}
+
+.season-btn:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+.season-btn.active {
+  background: rgba(255,255,255,0.35);
+  border-color: white;
+  box-shadow: 0 4px 25px rgba(255,255,255,0.3);
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+   HEADER
+   ================================================================ */
+
+.app-header {
+  text-align: center;
+  padding: 40px 30px 35px;
+  margin-bottom: 35px;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #f8bbd0, #ffd54f, #e76f51, #90caf9, #f8bbd0);
+  background-size: 300% 100%;
+  animation: headerGradient 6s ease infinite;
+}
+
+@keyframes headerGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.app-header h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #2d3436, #636e72);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-header .season-emoji-header { font-size: 3rem; display: inline-block; }
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #636e72;
+  max-width: 650px;
+  margin: 10px auto 0;
+  line-height: 1.6;
+}
+
+/* ================================================================
+   CARDS
+   ================================================================ */
+
+.app-main { display: flex; flex-direction: column; gap: 28px; }
+
+.card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.5);
+}
+
+.card:hover { transform: translateY(-2px); box-shadow: 0 15px 50px rgba(0,0,0,0.12); }
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3436;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ================================================================
+   UPLOAD
+   ================================================================ */
+
+.file-input-wrapper { display: flex; flex-direction: column; gap: 18px; align-items: center; }
+
+.file-input-label {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  padding: 40px 30px; border: 3px dashed #dfe6e9; border-radius: 16px;
+  cursor: pointer; transition: all 0.3s ease; width: 100%; max-width: 550px;
+  background: rgba(255,255,255,0.5);
+}
+
+.file-input-label:hover { border-color: #6c5ce7; background: rgba(108,92,231,0.05); transform: scale(1.01); }
+.file-input-label.has-file { border-color: #00b894; background: rgba(0,184,148,0.06); border-style: solid; }
+.file-icon { font-size: 3.5rem; color: #6c5ce7; transition: transform 0.3s; }
+.file-input-label:hover .file-icon { transform: rotate(-10deg) scale(1.1); }
+.file-input-label input { display: none; }
+.file-name { font-size: 0.95rem; color: #636e72; word-break: break-all; font-weight: 500; background: #dfe6e9; padding: 6px 16px; border-radius: 20px; }
+
+.station-input {
+  width: 100%; max-width: 550px; padding: 14px 18px;
+  border: 2px solid #dfe6e9; border-radius: 12px; font-size: 1rem;
+  transition: all 0.3s; background: rgba(255,255,255,0.8);
+}
+
+.station-input:focus { outline: none; border-color: #6c5ce7; box-shadow: 0 0 0 4px rgba(108,92,231,0.1); }
+
+/* ================================================================
+   BUTTONS
+   ================================================================ */
+
+.btn {
+  padding: 14px 34px; border: none; border-radius: 12px; font-size: 1rem;
+  font-weight: 700; cursor: pointer; transition: all 0.3s ease;
+  display: inline-flex; align-items: center; gap: 10px; letter-spacing: 0.3px;
+}
+
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+.btn-primary {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe, #6c5ce7);
+  background-size: 200% auto; color: white;
+  box-shadow: 0 4px 20px rgba(108,92,231,0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(108,92,231,0.4);
+  background-position: right center;
+}
+
+.btn-secondary { background: rgba(0,0,0,0.05); color: #636e72; border: 2px solid rgba(0,0,0,0.08); }
+.btn-secondary:hover { background: rgba(0,0,0,0.08); transform: translateY(-2px); }
+
+/* ================================================================
+   SUMMARY
+   ================================================================ */
+
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 15px; margin-bottom: 15px; }
+
+.summary-item {
+  display: flex; flex-direction: column; gap: 6px; padding: 18px;
+  background: linear-gradient(135deg, rgba(108,92,231,0.06), rgba(162,155,254,0.1));
+  border-radius: 14px; border: 1px solid rgba(108,92,231,0.1);
+}
+
+.summary-label { font-size: 0.8rem; color: #6c5ce7; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600; }
+.summary-value { font-size: 1.3rem; font-weight: 700; color: #2d3436; }
+
+/* ================================================================
+   ERROR
+   ================================================================ */
+
+.error-message {
+  background: linear-gradient(135deg, #fff5f5, #ffe8e8);
+  border: 1px solid #fab1a0; color: #d63031; padding: 14px 18px;
+  border-radius: 12px; margin-top: 15px; font-size: 0.9rem;
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* ================================================================
+   TABLA PROFESIONAL
+   ================================================================ */
+
+.comparison-wrapper { width: 100%; }
+
+.table-dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: linear-gradient(135deg, #f8f9ff, #eef0ff);
+  border-radius: 14px;
+  border: 1px solid rgba(108,92,231,0.12);
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(108,92,231,0.1); }
+
+.dashboard-nd { background: linear-gradient(135deg, #fff5f5, #ffe8e8); border-color: rgba(214,48,49,0.15); }
+
+.dashboard-icon {
+  font-size: 1.8rem; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  background: white; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.dashboard-value { font-size: 1.5rem; font-weight: 800; color: #2d3436; display: block; line-height: 1.2; }
+.dashboard-label { font-size: 0.75rem; color: #636e72; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
+
+.table-legend {
+  display: flex; gap: 20px; margin-bottom: 15px; flex-wrap: wrap;
+  padding: 12px 16px; background: #f8f9fa; border-radius: 10px; border: 1px solid #eee;
+}
+
+.table-legend .legend-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 0.82rem; color: #555; font-weight: 500;
+}
+
+.legend-badge { width: 16px; height: 16px; border-radius: 4px; display: inline-flex; align-items: center; justify-content: center; }
+.legend-original { background: #ffeaa7; border: 1px solid #fdcb6e; }
+.legend-interpolated { background: #55efc4; border: 1px solid #00b894; }
+.legend-nd-badge { background: #dfe6e9; border: 1px solid #b2bec3; color: #636e72; width: auto; padding: 0 6px; border-radius: 3px; font-size: 0.65rem; }
+
+.table-container {
+  overflow-x: auto; border-radius: 14px; border: 1px solid #e8e8e8;
+  background: white; box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.data-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 0.8rem; }
+.data-table thead { position: sticky; top: 0; z-index: 10; }
+
+.table-header-main th {
+  padding: 14px 12px; background: linear-gradient(135deg, #2d3436, #636e72);
+  color: white; font-weight: 700; font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 0.8px; border-bottom: 2px solid rgba(255,255,255,0.1);
+  cursor: pointer; user-select: none; transition: background 0.2s;
+}
+
+.table-header-main th:hover { background: linear-gradient(135deg, #636e72, #2d3436); }
+
+.table-header-sub th { padding: 10px 8px; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; cursor: pointer; user-select: none; }
+
+.th-original { background: linear-gradient(135deg, #ffeaa7, #fdcb6e); color: #6c5e0a; }
+.th-original-sub { background: #fff9e6; color: #8a7a2a; border-bottom: 2px solid #fdcb6e; }
+.th-interpolated { background: linear-gradient(135deg, #55efc4, #00b894); color: #005a46; }
+.th-interpolated-sub { background: #e6faf4; color: #006b52; border-bottom: 2px solid #00b894; }
+.th-status { background: linear-gradient(135deg, #2d3436, #636e72) !important; color: white; }
+.sort-icon { font-size: 0.6rem; margin-left: 4px; opacity: 0.7; }
+
+.data-row { transition: all 0.2s ease; cursor: pointer; }
+.data-row:hover { background: rgba(108,92,231,0.06) !important; }
+.data-row:nth-child(even) { background: #fafbfc; }
+.data-row.row-nd { background: #fff5f5; opacity: 0.85; }
+.data-row.row-expanded { background: rgba(108,92,231,0.08) !important; }
+
+.data-table td { padding: 12px 10px; border-bottom: 1px solid #f0f0f0; }
+
+.cell-date { font-weight: 600; color: #444; font-size: 0.78rem; }
+.cell-time { font-weight: 700; color: #2d3436; font-family: 'Courier New', monospace; font-size: 0.85rem; }
+.cell-original { font-weight: 500; color: #8a7a2a; font-family: 'Courier New', monospace; }
+.value-original { background: #fff9e6; padding: 3px 10px; border-radius: 6px; font-weight: 600; display: inline-block; }
+.cell-original-time { color: #8a7a2a; font-size: 0.75rem; font-family: 'Courier New', monospace; }
+.cell-interpolated { font-weight: 700; font-family: 'Courier New', monospace; }
+.cell-ok { color: #006b52; }
+.value-interpolated { background: #e6faf4; padding: 3px 10px; border-radius: 6px; display: inline-block; font-weight: 700; }
+.cell-nd { color: #b2bec3; }
+.nd-badge { background: #dfe6e9; color: #636e72; padding: 2px 12px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; letter-spacing: 1px; }
+.cell-delta { text-align: center; }
+
+.delta-badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 600; font-family: 'Courier New', monospace; }
+.delta-good { background: #e6faf4; color: #006b52; border: 1px solid #55efc4; }
+.delta-far { background: #fff3e0; color: #e17055; border: 1px solid #fdcb6e; }
+.delta-none { background: #f0f0f0; color: #999; }
+
+.cell-status { text-align: center; }
+.status-badge { display: inline-block; padding: 3px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3px; white-space: nowrap; }
+.status-good { background: linear-gradient(135deg, #55efc4, #00b894); color: white; box-shadow: 0 2px 8px rgba(0,184,148,0.2); }
+.status-ok { background: linear-gradient(135deg, #81ecec, #00cec9); color: white; }
+.status-warn { background: linear-gradient(135deg, #fdcb6e, #e17055); color: white; }
+.status-nd { background: linear-gradient(135deg, #dfe6e9, #b2bec3); color: #636e72; }
+
+.row-detail td { padding: 0 !important; background: #f8f9ff; }
+.detail-panel { padding: 20px 24px; border-top: 2px solid #6c5ce7; background: linear-gradient(135deg, #f8f9ff, #eef0ff); }
+.detail-header { margin-bottom: 16px; font-size: 0.9rem; color: #2d3436; }
+.detail-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 10px; }
+.detail-field { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: white; border-radius: 10px; border: 1px solid #eee; }
+.detail-field:hover { border-color: #6c5ce7; }
+.detail-icon { font-size: 1.2rem; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: #f0f0f0; border-radius: 8px; flex-shrink: 0; }
+.detail-content { flex: 1; min-width: 0; }
+.detail-label { display: block; font-size: 0.72rem; color: #636e72; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; font-weight: 600; }
+.detail-values { display: flex; gap: 12px; flex-wrap: wrap; }
+.detail-original { font-size: 0.8rem; color: #8a7a2a; }
+.detail-interpolated { font-size: 0.8rem; color: #006b52; font-weight: 600; }
+.detail-nd { color: #b2bec3; }
+
+.table-footer { margin-top: 15px; display: flex; flex-direction: column; gap: 6px; }
+.footer-stats { display: flex; gap: 10px; align-items: center; font-size: 0.82rem; color: #636e72; font-weight: 500; flex-wrap: wrap; }
+.footer-stats span { opacity: 0.7; }
+.footer-ok { color: #00b894; font-weight: 600; }
+.footer-nd { color: #d63031; font-weight: 600; }
+.table-caption { font-size: 0.8rem; color: #636e72; opacity: 0.7; font-style: italic; }
+
+/* ================================================================
+   CHART
+   ================================================================ */
+
+.chart-wrapper { height: 420px; position: relative; margin-top: 15px; padding: 10px; }
+
+/* ================================================================
+   HISTORY
+   ================================================================ */
+
+.history-list { display: flex; flex-direction: column; gap: 12px; }
+.history-item {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px; background: linear-gradient(135deg, rgba(108,92,231,0.04), rgba(162,155,254,0.06));
+  border-radius: 14px; cursor: pointer; transition: all 0.3s ease;
+  border: 1px solid rgba(108,92,231,0.08);
+}
+.history-item:hover { background: linear-gradient(135deg, rgba(108,92,231,0.1), rgba(162,155,254,0.12)); transform: translateX(4px); border-color: rgba(108,92,231,0.2); }
+.history-item-info { display: flex; flex-direction: column; gap: 4px; }
+.history-item-title { font-weight: 700; color: #2d3436; font-size: 1rem; }
+.history-item-subtitle { font-size: 0.85rem; color: #636e72; }
+.history-item-action { color: #6c5ce7; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+.history-empty { text-align: center; padding: 40px; color: #636e72; font-size: 1.05rem; }
+.history-loading { text-align: center; padding: 30px; color: #636e72; }
+.history-error { color: #d63031; text-align: center; padding: 20px; background: #fff5f5; border-radius: 12px; }
+
+/* ================================================================
+   LOADING
+   ================================================================ */
+
+.loading-spinner { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px; color: #6c5ce7; font-weight: 600; font-size: 1rem; }
+.spinner { width: 22px; height: 22px; border: 3px solid rgba(108,92,231,0.15); border-top: 3px solid #6c5ce7; border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+
+.app-footer {
+  text-align: center; padding: 35px 20px 20px;
+  color: rgba(255,255,255,0.85); font-size: 0.9rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.app-footer a { color: white; text-decoration: underline; margin-left: 5px; font-weight: 600; transition: opacity 0.2s; }
+.app-footer a:hover { opacity: 0.8; }
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+
+@media (max-width: 768px) {
+  .app { padding: 12px; }
+  .app-header { padding: 25px 20px; }
+  .app-header h1 { font-size: 1.8rem; }
+  .card { padding: 18px 16px; }
+  .summary-grid { grid-template-columns: 1fr 1fr; }
+  .file-input-label { padding: 25px 20px; }
+  .season-btn { font-size: 0.85rem; padding: 10px 16px; }
+  .table-dashboard { grid-template-columns: repeat(2, 1fr); }
+  .data-table td { padding: 8px 6px; font-size: 0.72rem; }
+  .table-header-main th { padding: 10px 8px; font-size: 0.7rem; }
+  .detail-grid { grid-template-columns: repeat(2, 1fr); }
+  .detail-panel { padding: 14px; }
+  .dashboard-card { padding: 12px; }
+  .dashboard-value { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  .summary-grid { grid-template-columns: 1fr; }
+  .season-btn { font-size: 0.75rem; padding: 8px 12px; }
+  .table-dashboard { grid-template-columns: 1fr 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+}
