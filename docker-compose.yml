@@ -1,0 +1,65 @@
+services:
+  # Base de datos MongoDB
+  db:
+    image: mongo:7.0
+    container_name: climatic-db
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_DATABASE: climatic_homogenization
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - climatic-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API REST
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: climatic-backend
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PORT: 3000
+      MONGO_URI: mongodb://db:27017/climatic_homogenization
+    ports:
+      - "3000:3000"
+    networks:
+      - climatic-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/api/health', r => process.exit(r.statusCode !== 200 ? 1 : 0))"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  # Frontend con Nginx
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: climatic-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    networks:
+      - climatic-network
+
+volumes:
+  mongo_data:
+    driver: local
+
+networks:
+  climatic-network:
+    driver: bridge
