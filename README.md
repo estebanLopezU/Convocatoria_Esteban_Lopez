@@ -104,7 +104,7 @@ npm install
 npm run dev
 ```
 
-El frontend en modo desarrollo corre en http://localhost:5174 (con proxy al backend).
+El frontend en modo desarrollo corre en http://localhost:5173 (con proxy al backend).
 
 ## 📡 Endpoints de la API
 

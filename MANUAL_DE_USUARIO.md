@@ -199,7 +199,7 @@ npm install
 npm run dev
 ```
 
-El frontend se iniciara en http://localhost:5174.
+El frontend se iniciara en http://localhost:5173.
 
 > Nota: El servidor de desarrollo de Vite tiene configurado un proxy que redirige las peticiones `/api/*` al backend en `http://localhost:3000`. Asegurese de que el backend este corriendo antes de usar el frontend.
 
@@ -258,7 +258,7 @@ Convocatoria_Esteban_Lopez/
 Una vez que el frontend este corriendo, abra su navegador web y vaya a:
 
 - **Con Docker:** http://localhost:8081
-- **Sin Docker:** http://localhost:5174
+- **Sin Docker:** http://localhost:5173
 
 ### 5.2 Preparar Archivo JSON de Datos
 
