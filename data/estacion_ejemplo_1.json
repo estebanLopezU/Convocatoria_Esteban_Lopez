@@ -1,0 +1,8 @@
+[
+  { "fecha": "12/5/2015", "hora": "08:12:15", "temp": 22.5, "vel_viento": 2.3, "dir_viento": 45, "dir_rosa": "NE", "presion": 602.1, "humedad": 78, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "12/5/2015", "hora": "08:23:42", "temp": 23.1, "vel_viento": 2.8, "dir_viento": 52, "dir_rosa": "NE", "presion": 601.8, "humedad": 77, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "12/5/2015", "hora": "08:35:08", "temp": 24.2, "vel_viento": 3.1, "dir_viento": 60, "dir_rosa": "E", "presion": 601.2, "humedad": 75, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "12/5/2015", "hora": "08:52:33", "temp": 25.8, "vel_viento": 4.2, "dir_viento": 75, "dir_rosa": "E", "presion": 600.5, "humedad": 72, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "12/5/2015", "hora": "09:08:17", "temp": 27.3, "vel_viento": 4.8, "dir_viento": 90, "dir_rosa": "E", "presion": 599.8, "humedad": 68, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "12/5/2015", "hora": "09:25:41", "temp": 28.5, "vel_viento": 5.2, "dir_viento": 105, "dir_rosa": "ESE", "presion": 599.2, "humedad": 65, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 }
+]
