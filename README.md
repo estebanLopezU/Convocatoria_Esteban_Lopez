@@ -1,4 +1,4 @@
-# 🌤️ Sistema de Homogenización Climática
+#  Sistema de Homogenización Climática
 
 **Prueba Técnica SAT** — Convocatoria Esteban López
 
@@ -6,7 +6,7 @@ Sistema profesional para transformar datos de estaciones meteorológicas con bas
 
 ---
 
-## 📋 Descripción
+##  Descripción
 
 El algoritmo implementa las siguientes reglas de decisión para asignar cada dato cincominutal:
 
@@ -18,7 +18,7 @@ El algoritmo implementa las siguientes reglas de decisión para asignar cada dat
 | > 2.5 min         | No hay (> 5 min)    | ND                      |
 | No hay (> 5 min)  | > 2.5 min           | ND                      |
 
-## 🏗️ Arquitectura
+##  Arquitectura
 
 ```
 ├── backend/                 # API REST (Node.js + Express)
@@ -45,7 +45,7 @@ El algoritmo implementa las siguientes reglas de decisión para asignar cada dat
 └── README.md
 ```
 
-## 🚀 Tecnologías Elegidas
+## Tecnologías Elegidas
 
 | Capa           | Tecnología                          | Razón                                         |
 |----------------|-------------------------------------|---------------------------------------------|
@@ -55,7 +55,7 @@ El algoritmo implementa las siguientes reglas de decisión para asignar cada dat
 | **Proxy**      | Nginx                               | Servidor web rápido, proxy inverso           |
 | **Docker**     | Docker Compose                      | Orquestación simple de 3 contenedores          |
 
-## 📦 Instalación y Ejecución
+## Instalación y Ejecución
 
 ### Usando Docker (recomendado)
 
@@ -165,7 +165,7 @@ Obtiene un cálculo específico con todos los detalles.
 
 Health check del servicio.
 
-## 🧮 Algoritmo de Interpolación Lineal
+## Algoritmo de Interpolación Lineal
 
 La interpolación lineal se realiza mediante la fórmula:
 
@@ -181,11 +181,11 @@ Donde:
 - `v₂`: valor asociado a la fecha posterior
 - `f(t)`: valor interpolado para la fecha objetivo
 
-## 📧 Contacto
+## Contacto
 
 - **Correos de envío:** ndduqueme@unal.edu.co, avargase@unal.edu.co
 - **Repositorio:** [https://github.com/estebanLopezU/Convocatoria_Esteban_Lopez](https://github.com/estebanLopezU/Convocatoria_Esteban_Lopez)
 
-## 📄 Licencia
+## Licencia
 
-Prueba técnica — Convocatoria SAT 2025
+Prueba técnica — Convocatoria SAT 2026
