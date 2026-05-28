@@ -1,10 +1,10 @@
 [
-  { "fecha": "20/3/2015", "hora": "05:52:14", "temp": 12.3, "vel_viento": 0.8, "dir_viento": 350, "dir_rosa": "N", "presion": 592.1, "humedad": 95, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "20/3/2015", "hora": "06:08:27", "temp": 13.1, "vel_viento": 1.2, "dir_viento": 5, "dir_rosa": "N", "presion": 591.8, "humedad": 93, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "20/3/2015", "hora": "06:22:41", "temp": 14.5, "vel_viento": 1.8, "dir_viento": 12, "dir_rosa": "N-NE", "presion": 591.4, "humedad": 90, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "20/3/2015", "hora": "06:38:55", "temp": 16.2, "vel_viento": 2.4, "dir_viento": 25, "dir_rosa": "N-NE", "presion": 591.0, "humedad": 87, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "20/3/2015", "hora": "07:05:12", "temp": 18.8, "vel_viento": 3.1, "dir_viento": 38, "dir_rosa": "NE", "presion": 590.5, "humedad": 82, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "20/3/2015", "hora": "07:22:33", "temp": 20.5, "vel_viento": 3.8, "dir_viento": 52, "dir_rosa": "NE", "presion": 589.9, "humedad": 78, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "20/3/2015", "hora": "22:15:42", "temp": 15.2, "vel_viento": 1.5, "dir_viento": 165, "dir_rosa": "SSE", "presion": 590.8, "humedad": 85, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "20/3/2015", "hora": "22:32:18", "temp": 14.8, "vel_viento": 2.1, "dir_viento": 172, "dir_rosa": "S", "presion": 591.2, "humedad": 87, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 }
+  { "fecha": "03/20/2015", "hora": "05:52:14", "temp": 12.3, "vel_viento": 0.8, "dir_viento": 350, "dir_rosa": "N", "presion": 592.1, "humedad": 95, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "03/20/2015", "hora": "06:08:27", "temp": 13.1, "vel_viento": 1.2, "dir_viento": 5, "dir_rosa": "N", "presion": 591.8, "humedad": 93, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "03/20/2015", "hora": "06:22:41", "temp": 14.5, "vel_viento": 1.8, "dir_viento": 12, "dir_rosa": "N-NE", "presion": 591.4, "humedad": 90, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "03/20/2015", "hora": "06:38:55", "temp": 16.2, "vel_viento": 2.4, "dir_viento": 25, "dir_rosa": "N-NE", "presion": 591.0, "humedad": 87, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "03/20/2015", "hora": "07:05:12", "temp": 18.8, "vel_viento": 3.1, "dir_viento": 38, "dir_rosa": "NE", "presion": 590.5, "humedad": 82, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "03/20/2015", "hora": "07:22:33", "temp": 20.5, "vel_viento": 3.8, "dir_viento": 52, "dir_rosa": "NE", "presion": 589.9, "humedad": 78, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "03/20/2015", "hora": "22:15:42", "temp": 15.2, "vel_viento": 1.5, "dir_viento": 165, "dir_rosa": "SSE", "presion": 590.8, "humedad": 85, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "03/20/2015", "hora": "22:32:18", "temp": 14.8, "vel_viento": 2.1, "dir_viento": 172, "dir_rosa": "S", "presion": 591.2, "humedad": 87, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 }
 ]

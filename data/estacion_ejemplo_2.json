@@ -1,8 +1,8 @@
 [
-  { "fecha": "15/6/2015", "hora": "14:08:22", "temp": 18.2, "vel_viento": 1.5, "dir_viento": 180, "dir_rosa": "S", "presion": 588.5, "humedad": 85, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "15/6/2015", "hora": "14:17:45", "temp": 17.8, "vel_viento": 2.1, "dir_viento": 195, "dir_rosa": "S-SW", "presion": 588.2, "humedad": 87, "ppt_cincom": 2.5, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "15/6/2015", "hora": "14:28:12", "temp": 17.2, "vel_viento": 3.2, "dir_viento": 210, "dir_rosa": "SW", "presion": 587.8, "humedad": 89, "ppt_cincom": 5.8, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "15/6/2015", "hora": "14:45:33", "temp": 16.5, "vel_viento": 4.1, "dir_viento": 225, "dir_rosa": "SW", "presion": 587.1, "humedad": 91, "ppt_cincom": 8.2, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "15/6/2015", "hora": "15:02:18", "temp": 16.8, "vel_viento": 3.8, "dir_viento": 240, "dir_rosa": "W-SW", "presion": 587.5, "humedad": 90, "ppt_cincom": 6.1, "rad_solar": 0, "evt_cincom": 0 },
-  { "fecha": "15/6/2015", "hora": "15:18:25", "temp": 17.5, "vel_viento": 2.9, "dir_viento": 255, "dir_rosa": "W", "presion": 588.0, "humedad": 88, "ppt_cincom": 2.3, "rad_solar": 0, "evt_cincom": 0 }
+  { "fecha": "06/15/2015", "hora": "14:08:22", "temp": 18.2, "vel_viento": 1.5, "dir_viento": 180, "dir_rosa": "S", "presion": 588.5, "humedad": 85, "ppt_cincom": 0, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "06/15/2015", "hora": "14:17:45", "temp": 17.8, "vel_viento": 2.1, "dir_viento": 195, "dir_rosa": "S-SW", "presion": 588.2, "humedad": 87, "ppt_cincom": 2.5, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "06/15/2015", "hora": "14:28:12", "temp": 17.2, "vel_viento": 3.2, "dir_viento": 210, "dir_rosa": "SW", "presion": 587.8, "humedad": 89, "ppt_cincom": 5.8, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "06/15/2015", "hora": "14:45:33", "temp": 16.5, "vel_viento": 4.1, "dir_viento": 225, "dir_rosa": "SW", "presion": 587.1, "humedad": 91, "ppt_cincom": 8.2, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "06/15/2015", "hora": "15:02:18", "temp": 16.8, "vel_viento": 3.8, "dir_viento": 240, "dir_rosa": "W-SW", "presion": 587.5, "humedad": 90, "ppt_cincom": 6.1, "rad_solar": 0, "evt_cincom": 0 },
+  { "fecha": "06/15/2015", "hora": "15:18:25", "temp": 17.5, "vel_viento": 2.9, "dir_viento": 255, "dir_rosa": "W", "presion": 588.0, "humedad": 88, "ppt_cincom": 2.3, "rad_solar": 0, "evt_cincom": 0 }
 ]
