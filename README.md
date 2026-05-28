@@ -71,9 +71,9 @@ docker-compose up -d --build
 docker-compose ps
 ```
 
-- **Frontend:** http://localhost:8080
-- **Backend API:** http://localhost:3000
-- **Health Check:** http://localhost:3000/api/health
+- **Frontend:** http://localhost:8081
+- **Backend API:** http://localhost:3002
+- **Health Check:** http://localhost:3002/api/health
 
 ### Desarrollo local (sin Docker)
 
