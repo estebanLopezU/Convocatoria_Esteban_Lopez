@@ -20,6 +20,12 @@ function History({ onSelectResult }) {
     }
   };
 
+  const clearHistory = () => {
+    if (window.confirm('¿Estás seguro de limpiar los resultados del historial?')) {
+      setRecords([]);
+    }
+  };
+
   useEffect(() => {
     fetchHistory();
     // Refrescar cada 30 segundos
@@ -62,43 +68,57 @@ function History({ onSelectResult }) {
   }
 
   return (
-    <div className="history-list">
-      {records.map((record) => (
-        <div
-          key={record._id}
-          className="history-item"
-          onClick={() => {
-            if (onSelectResult) {
-              // Si tiene el detalle completo, lo usamos
-              fetch(`/api/history/${record._id}`)
-                .then(res => res.json())
-                .then(data => {
-                  if (data.success && data.record) {
-                    onSelectResult({
-                      inputData: data.record.inputData,
-                      outputData: data.record.outputData,
-                      summary: data.record.summary,
-                      processingTimeMs: 0
-                    });
-                  }
-                })
-                .catch(err => console.error('Error loading history detail:', err));
-            }
-          }}
-        >
-          <div className="history-item-info">
-            <span className="history-item-title">
-              📊 {record.summary?.stationName || 'Estación sin nombre'}
-            </span>
-            <span className="history-item-subtitle">
-              {record.summary?.totalInputRecords || 0} registros de entrada →{' '}
-              {record.summary?.totalOutputRecords || 0} registros de salida •{' '}
-              {formatDate(record.createdAt || record.timestamp)}
-            </span>
-          </div>
-          <span className="history-item-action">Ver resultados →</span>
+    <div>
+      {records.length > 0 && (
+        <div style={{ textAlign: 'right', marginBottom: '10px' }}>
+          <button 
+            className="btn btn-secondary" 
+            onClick={clearHistory}
+            style={{ fontSize: '0.85rem', padding: '8px 12px' }}
+            title="Limpiar historial mostrado"
+          >
+            🗑️ Limpiar resultados
+          </button>
         </div>
-      ))}
+      )}
+      <div className="history-list">
+        {records.map((record) => (
+          <div
+            key={record._id}
+            className="history-item"
+            onClick={() => {
+              if (onSelectResult) {
+                // Si tiene el detalle completo, lo usamos
+                fetch(`/api/history/${record._id}`)
+                  .then(res => res.json())
+                  .then(data => {
+                    if (data.success && data.record) {
+                      onSelectResult({
+                        inputData: data.record.inputData,
+                        outputData: data.record.outputData,
+                        summary: data.record.summary,
+                        processingTimeMs: 0
+                      });
+                    }
+                  })
+                  .catch(err => console.error('Error loading history detail:', err));
+              }
+            }}
+          >
+            <div className="history-item-info">
+              <span className="history-item-title">
+                📊 {record.summary?.stationName || 'Estación sin nombre'}
+              </span>
+              <span className="history-item-subtitle">
+                {record.summary?.totalInputRecords || 0} registros de entrada →{' '}
+                {record.summary?.totalOutputRecords || 0} registros de salida •{' '}
+                {formatDate(record.createdAt || record.timestamp)}
+              </span>
+            </div>
+            <span className="history-item-action">Ver resultados →</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
