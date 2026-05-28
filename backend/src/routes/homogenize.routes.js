@@ -86,7 +86,7 @@ router.get('/history', async (req, res) => {
         .sort({ createdAt: -1 })
         .skip(skip)
         .limit(limit)
-        .select('-inputData -outputData') // Excluir datos completos para listado
+        .select('-inputData -outputData')
         .lean(),
       History.countDocuments()
     ]);
@@ -103,11 +103,20 @@ router.get('/history', async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Error en /history:', error);
-    res.status(500).json({
-      error: 'Error al recuperar el historial.',
-      details: error.message
-    });
+    // Si MongoDB no está disponible, devolver historial vacío
+    if (error.name === 'MongooseError' || error.message.includes('buffering timed out')) {
+      res.json({
+        success: true,
+        pagination: { total: 0, page: 1, limit: 10, totalPages: 0 },
+        records: []
+      });
+    } else {
+      console.error('Error en /history:', error);
+      res.status(500).json({
+        error: 'Error al recuperar el historial.',
+        details: error.message
+      });
+    }
   }
 });
 

@@ -26,9 +26,11 @@ app.get('/api/health', (req, res) => {
 });
 
 // Conexión a MongoDB
+let mongoConnected = false;
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('✅ Conectado a MongoDB');
+    mongoConnected = true;
   })
   .catch((err) => {
     console.error('⚠️ No se pudo conectar a MongoDB:', err.message);
