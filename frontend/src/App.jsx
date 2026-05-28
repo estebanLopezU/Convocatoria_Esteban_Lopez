@@ -3,6 +3,7 @@ import DataUploader from './components/DataUploader';
 import ComparisonTable from './components/ComparisonTable';
 import TemperatureChart from './components/TemperatureChart';
 import History from './components/History';
+import ExampleFiles from './components/ExampleFiles';
 import './App.css';
 
 function App() {
@@ -234,6 +235,8 @@ function App() {
             </div>
           )}
         </section>
+
+        <ExampleFiles />
 
         {summary && (
           <section className="card summary-section">

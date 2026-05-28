@@ -1443,7 +1443,17 @@ body {
 .history-error { color: #d63031; text-align: center; padding: 20px; background: #fff5f5; border-radius: 12px; }
 
 /* ================================================================
-   LOADING
+   EXAMPLE FILES PANEL
+   ================================================================ */
+
+.example-section { margin-top: 25px; }
+.example-description { font-size: 0.9rem; color: #636e72; margin-bottom: 15px; }
+.example-files-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; }
+.example-btn { text-align: left; padding: 14px 18px; font-size: 0.95rem; transition: all 0.2s ease; }
+.example-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(108,92,231,0.25); }
+
+/* ================================================================
+   FOOTER
    ================================================================ */
 
 .loading-spinner { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px; color: #6c5ce7; font-weight: 600; font-size: 1rem; }
