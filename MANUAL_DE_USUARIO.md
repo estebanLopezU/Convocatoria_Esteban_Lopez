@@ -102,8 +102,8 @@ docker-compose up -d --build
 ```
 
 Este comando construye las imagenes y levanta tres contenedores:
-- frontend-container: Sirve la interfaz web con Nginx en el puerto 8080
-- backend-container: Ejecuta la API REST en el puerto 3000
+- frontend-container: Sirve la interfaz web con Nginx en el **puerto 8081**
+- backend-container: Ejecuta la API REST en el **puerto 3002**
 - db-container: Base de datos MongoDB en el puerto 27017
 
 **Paso 2:** Verificar que los contenedores esten funcionando
@@ -117,7 +117,7 @@ Deberia ver los tres servicios con estado "Up".
 **Paso 3:** Verificar el health check del backend
 
 ```bash
-curl http://localhost:3000/api/health
+curl http://localhost:3002/api/health
 ```
 
 Respuesta esperada:
@@ -246,7 +246,6 @@ Convocatoria_Esteban_Lopez/
 ├── docker-compose.yml                # Orquestacion de 3 contenedores
 ├── MANUAL_DE_USUARIO.md              # Este manual
 ├── test_algoritmo.js                 # Prueba del algoritmo
-├── test_integral.js                  # Prueba integral del sistema
 └── README.md                         # Documentacion general
 ```
 
@@ -258,7 +257,7 @@ Convocatoria_Esteban_Lopez/
 
 Una vez que el frontend este corriendo, abra su navegador web y vaya a:
 
-- **Con Docker:** http://localhost:8080
+- **Con Docker:** http://localhost:8081
 - **Sin Docker:** http://localhost:5173
 
 ### 5.2 Preparar Archivo JSON de Datos
@@ -349,7 +348,7 @@ Procesa datos crudos y devuelve el array homogeneizado a intervalo cincominutal.
 **Request:**
 
 ```
-POST http://localhost:3000/api/homogenize
+POST http://localhost:3002/api/homogenize
 Content-Type: application/json
 ```
 
@@ -409,7 +408,7 @@ Content-Type: application/json
 **Ejemplo con curl:**
 
 ```bash
-curl -X POST http://localhost:3000/api/homogenize \
+curl -X POST http://localhost:3002/api/homogenize \
   -H "Content-Type: application/json" \
   -d @data/ejemplo_estacion.json
 ```
@@ -421,7 +420,7 @@ Recupera el historial de calculos realizados.
 **Request:**
 
 ```
-GET http://localhost:3000/api/history?limit=10&page=1
+GET http://localhost:3002/api/history?limit=10&page=1
 ```
 
 **Parametros:**
@@ -464,7 +463,7 @@ Obtiene los detalles completos de un calculo especifico.
 **Request:**
 
 ```
-GET http://localhost:3000/api/history/665abc...
+GET http://localhost:3002/api/history/665abc...
 ```
 
 **Response (200):**
@@ -488,7 +487,7 @@ Verifica que el servicio este funcionando.
 **Request:**
 
 ```
-GET http://localhost:3000/api/health
+GET http://localhost:3002/api/health
 ```
 
 **Response (200):**
@@ -649,38 +648,6 @@ node test_algoritmo.js
 ```
 
 Este script ejecuta el algoritmo con los datos de la Tabla 1 del PDF y compara los resultados con la Tabla 2.
-
-### Prueba Integral
-
-Para una verificacion completa de todos los componentes del sistema (48 pruebas):
-
-```bash
-node test_integral.js
-```
-
-Este script verifica:
-- Backend (API REST)
-- Algoritmo de interpolacion (13 casos)
-- Casos especiales (arrays vacios, ND, calma)
-- Frontend (componentes React)
-- Infraestructura (archivos Docker)
-- Control de versiones (Git, README)
-- Datos sinteticos
-
-### Prueba Manual con curl
-
-```bash
-# Health check
-curl http://localhost:3000/api/health
-
-# Homogenizar datos
-curl -X POST http://localhost:3000/api/homogenize \
-  -H "Content-Type: application/json" \
-  -d '{"stationName":"Prueba","data":[{"fecha":"11/5/2015","hora":"19:36:21","temp":16.17,"vel_viento":0,"dir_viento":0,"dir_rosa":"S","presion":594.36,"humedad":94,"ppt_cincom":6.6,"rad_solar":0,"evt_cincom":1.83}]}'
-
-# Ver historial
-curl http://localhost:3000/api/history
-```
 
 ---
 
